@@ -1,2 +1,5 @@
 # theorybot
-Program that checks for music theory errors
+Program that checks for music theory errors from MusicXML files
+
+## Usage
+./theorybot.py <file>
