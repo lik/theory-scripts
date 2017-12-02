@@ -19,8 +19,13 @@ intervals = []
 for pitch in tree.findall(".//pitch"):
     notes.append([pitch.find('step').text, pitch.find('octave').text])
 
-# Calculation of intervals
+"""
+Calculation of intervals
+First half of array contains top line, second half contains bottom line
+Difference between them at given index is the interval
+"""
 for i in range(len(notes) / 2):
+    # Since C is the first 'letter', adjusting for that and wrapping
     interval = (ord(notes[i][0]) + 2 % 7) - ((ord(notes[len(notes) / 2 + i][0])) + 2 % 7) + 1
     if interval < 0:
         interval += 7;
