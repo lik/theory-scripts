@@ -34,6 +34,6 @@ for i in range(len(intervals) - 1):
         if intervals[i] == 5:
             print("\tWarning: repeated fifths. Check to make sure they are not in parallel motion.")
         elif intervals[i] == 8:
-            print("Warning: repeated eighths. Check to make sure they are not in parallel motion.")
+            print("\tWarning: repeated eighths. Check to make sure they are not in parallel motion.")
 
 
