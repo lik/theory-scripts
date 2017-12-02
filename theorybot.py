@@ -11,15 +11,22 @@ except IndexError:
 
 tree = ET.parse(input)
 
-#for elem in tree.iter(tag='step'):
-#    print(elem.text)
+notes = []
+intervals = []
+
+highest_voice = 0
+for voice in tree.iter(tag='voice'):
+    if voice.text > highest_voice:
+        highest_voice = voice.text
+    
+print("Highest voice: " + highest_voice)
 
 for pitch in tree.findall(".//pitch"):
-    print(pitch.find('step').text)
-    print(pitch.find('octave').text)
-    
-# Use if-statements to determine which array the notes will go under    
-# print(note.find('voice').text) 
+    notes.append([pitch.find('step').text, pitch.find('octave').text])
 
-# Have two counters and increment when you add up duration a certain way
-# print(note.find('duration').text)
+print(notes)
+
+for i in range(len(notes) / 2):
+    intervals.append((ord(notes[i][0]) + 2 % 7) - ((ord(notes[len(notes) / 2 + i][0])) + 2 % 7))
+
+print(intervals)
