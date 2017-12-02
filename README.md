@@ -2,4 +2,4 @@
 Program that checks for music theory errors from MusicXML files
 
 ## Usage
-./theorybot.py <file>
+./theorybot.py &lt;file>
