@@ -11,20 +11,22 @@ except IndexError:
 
 tree = ET.parse(input)
 
-# Info that is parsed from XML file
+# Array to store info parsed from XML file
 notes = []
 intervals = []
 
+# Finds and appends the appropriate elements to respective arrays
 for pitch in tree.findall(".//pitch"):
     notes.append([pitch.find('step').text, pitch.find('octave').text])
 
+# Calculation of intervals
 for i in range(len(notes) / 2):
     interval = (ord(notes[i][0]) + 2 % 7) - ((ord(notes[len(notes) / 2 + i][0])) + 2 % 7) + 1
     if interval < 0:
         interval += 7;
     intervals.append(interval)
 
-
+# Prints intervals between the two lines and if applicable, any potential places for error
 print("Intervals:")
 for i in range(len(intervals) - 1):
     print(intervals[i])
