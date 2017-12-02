@@ -35,4 +35,3 @@ for i in range(len(intervals) - 1):
             print("Warning: repeated eighths. Check to make sure they are not in parallel motion.")
 
 
-
