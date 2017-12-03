@@ -6,7 +6,7 @@ import xml.etree.ElementTree as ET
 try:
     input = sys.argv[1]
 except IndexError:
-    print("Usage: ./theorybot.py <file>")
+    print("Usage: ./errorcheck.py <file>")
     sys.exit(1)
 
 tree = ET.parse(input)
