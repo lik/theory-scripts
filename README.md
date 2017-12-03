@@ -1,4 +1,4 @@
-# theorybot
+# theory-scripts
 Medley of scripts related to music theory
 
 ## Info 
