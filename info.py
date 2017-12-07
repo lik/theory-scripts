@@ -7,6 +7,7 @@ try:
     input = sys.argv[1]
 except IndexError:
     print("Usage: ./info.py <file>")
+<<<<<<< HEAD
     sys.exit(1)
 
 tree = ET.parse(input)
@@ -43,3 +44,8 @@ denominator = int(tree.find(".//beat-type").text)
 time = denominator / beat_unit * (1 / bpm) * numerator * measures
 
 print("This piece if played to the marked tempo will take %f minutes" % (time))
+=======
+sys.exit(1)
+
+tree = ET.parse(input)
+>>>>>>> 8db02d756d3d755901f6da4a79012b170e19e6b4
