@@ -11,7 +11,7 @@ except IndexError:
 
 tree = ET.parse(input)
 
-measures = 0;
+measures = 0
 for measure in tree.findall(".//measure"):
     measures += 1
 
@@ -40,9 +40,12 @@ if bpm == "":
 numerator = int(tree.find(".//beats").text)
 denominator = int(tree.find(".//beat-type").text)
 
-time = denominator / beat_unit * (1 / bpm) * numerator * measures
+time = float(beat_unit) / denominator * (1 / bpm) * numerator * measures
 
-print("This piece if played to the marked tempo will take %f minutes" % (time))
-sys.exit(1)
+print("This piece if played to the marked tempo will take %f minutes." % (time))
 
-tree = ET.parse(input)
+notes = 0
+for note in tree.findall(".//note"):
+    notes += 1
+
+print("There are %d notes in this piece." % (notes))
