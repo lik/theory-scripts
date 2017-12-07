@@ -11,6 +11,7 @@ except IndexError:
 
 tree = ET.parse(input)
 
+# Scans through file to find amount of measures
 measures = 0
 for measure in tree.findall(".//measure"):
     measures += 1
@@ -32,20 +33,27 @@ else:
     print("Beat-unit not supported")
     sys.exit(1)
 
+# Finds beats per minute
 bpm = float(tree.find(".//per-minute").text)
 if bpm == "":
     print("Beats per measure not found")
     sys.exit(1)
 
+# Finds the components of time signature 
 numerator = int(tree.find(".//beats").text)
 denominator = int(tree.find(".//beat-type").text)
 
+# Calculating the amount of time it takes to perform the piece
 time = float(beat_unit) / denominator * (1 / bpm) * numerator * measures
 
 print("This piece if played to the marked tempo will take %f minutes." % (time))
 
-notes = 0
+# Counts amount of notes and rests in the piece
+notes, rests = 0, 0
 for note in tree.findall(".//note"):
     notes += 1
+for rest in tree.findall(".//rest"):
+    rests += 1
 
 print("There are %d notes in this piece." % (notes))
+print("There are %d rests in this piece." % (rests))
