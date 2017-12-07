@@ -43,7 +43,6 @@ denominator = int(tree.find(".//beat-type").text)
 time = denominator / beat_unit * (1 / bpm) * numerator * measures
 
 print("This piece if played to the marked tempo will take %f minutes" % (time))
-=======
 sys.exit(1)
 
 tree = ET.parse(input)
